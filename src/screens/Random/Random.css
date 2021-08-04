@@ -1,0 +1,10 @@
+.randomFlashcard,
+.empty {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+
+.empty {
+  color: var(--white-1);
+}

@@ -1,0 +1,58 @@
+.importExport {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.button-wrap {
+  position: relative;
+  margin-right: 10px;
+}
+
+.button {
+  cursor: pointer;
+  color: var(--black-1);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  width: 60px;
+  height: 100%;
+  border-radius: 3px;
+  background-color: var(--grey-1);
+}
+
+.button:hover {
+  background-color: #696969;
+}
+
+.import {
+  position: absolute;
+  z-index: -1;
+  top: 15px;
+  left: 20px;
+}
+
+.confirm {
+  cursor: pointer;
+  color: var(--white-1);
+  font-size: 15px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  margin-right: 10px;
+  background-color: var(--blue-1);
+}
+
+.flashcardBox {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 50vh;
+  max-height: 70vh;
+  padding: 20px 12px;
+  border: 1px solid var(--grey-1);
+}

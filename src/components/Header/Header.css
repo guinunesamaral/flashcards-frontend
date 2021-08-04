@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  margin-right: -4px;
+}
+
+.title {
+  color: var(--grey-1);
+}
