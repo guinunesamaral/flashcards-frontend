@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Flashcard from "../../components/Flashcard/Flashcard";
 import { useGlobalContext } from "../../context/context";
+import FlashcardInterface from "../../shared/flashcard.interface";
 import "./FlashcardBox.css";
 
 function FlashcardBox() {
   const { flashcards } = useGlobalContext();
   const { addFlashcard } = useGlobalContext();
   const { removeAllFlashcards } = useGlobalContext();
-  const [hasImportedFile, setHasImportedFile] = useState(false);
+  const [haveImportedFile, setHaveImportedFile] = useState(false);
 
   useEffect(() => {
     const saveFlashcardsOnLocalStorage = () => {
@@ -20,23 +21,18 @@ function FlashcardBox() {
   const tryToShowConfirmButton = () => {
     const importedFile = (document.getElementById("import") as HTMLInputElement)
       .files;
-    if (importedFile && importedFile.length > 0) setHasImportedFile(true);
+    if (importedFile && importedFile.length > 0) setHaveImportedFile(true);
   };
-
-  interface FlashcardInterface {
-    id: string;
-    front: string;
-    back: string;
-  }
 
   const importFlashcards = () => {
     const importedFile = (document.getElementById("import") as HTMLInputElement)
       .files;
     const reader: FileReader = new FileReader();
+
     reader.onload = () => {
       const res: string | undefined = reader.result?.toString().trim();
       if (typeof res === "string") {
-        let fileContent = JSON.parse(res);
+        const fileContent = JSON.parse(res);
         if (fileContent.length > 0 && flashcards.length > 0) {
           removeAllFlashcards();
         }
@@ -52,7 +48,7 @@ function FlashcardBox() {
       const res: File | null = importedFile.item(0);
       if (res) {
         reader.readAsText(res);
-        setHasImportedFile(false);
+        setHaveImportedFile(false);
       }
     }
   };
@@ -63,6 +59,7 @@ function FlashcardBox() {
       "data:application/json;charset=utf-8," + encodeURIComponent(dataStr);
     const exportFileDefaultName = "flashcards.json";
     const linkElement = document.createElement("a");
+
     linkElement.setAttribute("href", dataUri);
     linkElement.setAttribute("download", exportFileDefaultName);
     linkElement.click();
@@ -82,7 +79,7 @@ function FlashcardBox() {
             onChange={tryToShowConfirmButton}
           ></input>
         </div>
-        {hasImportedFile && (
+        {haveImportedFile && (
           <button className="confirm" onClick={importFlashcards}>
             Confirm
           </button>

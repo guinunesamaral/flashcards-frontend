@@ -3,11 +3,10 @@ import reducer from "../reducer/reducer";
 
 const AppContext = React.createContext<any>({});
 
-const initialState = {
-  flashcards: [],
-};
-
 const AppProvider = ({ children }: { children: any }) => {
+  const initialState = {
+    flashcards: [],
+  };
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const setIsSignedIn = (value: string) => {

@@ -1,5 +1,5 @@
-import Home from "../Home/Home";
-import AppProvider from "../../context/context";
+import Home from "./screens/Home/Home";
+import AppProvider from "./context/context";
 
 function App() {
   return (

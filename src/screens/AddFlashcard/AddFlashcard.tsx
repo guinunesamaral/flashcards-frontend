@@ -6,7 +6,6 @@ import "./AddFlashcard.css";
 
 function AddFlashcard() {
   const { addFlashcard } = useGlobalContext();
-
   const [front, setFront] = useState("");
   const [back, setBack] = useState("");
 
