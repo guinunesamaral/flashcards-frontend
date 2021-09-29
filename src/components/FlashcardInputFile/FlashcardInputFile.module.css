@@ -1,0 +1,20 @@
+.importExport {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.buttonWrap {
+  margin-right: 10px;
+}
+
+.import {
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.confirm {
+  margin-right: 10px;
+}

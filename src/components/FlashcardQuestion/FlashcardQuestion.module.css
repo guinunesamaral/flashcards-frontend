@@ -1,0 +1,39 @@
+.studyFlashcard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 300px;
+  max-width: 300px;
+  height: 180px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+.frontBg {
+  background-color: var(--grey-1);
+}
+
+.backBg {
+  background-color: var(--black-1);
+}
+
+.frontStudy {
+  color: var(--black-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 160px;
+  border-radius: 4px;
+}
+
+.backStudy {
+  color: var(--grey-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 160px;
+  border-radius: 4px;
+  border: 1px solid var(--grey-1);
+}

@@ -1,0 +1,55 @@
+.study {
+  display: flex;
+  align-items: center;
+}
+
+.score {
+  display: flex;
+  align-self: center;
+  padding: 8px 0;
+  margin-top: 60px;
+}
+
+.scoreParagraph {
+  color: var(--white-1);
+}
+
+.scoreFirstParagraph {
+  margin-right: 8px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.rightBtn {
+  cursor: pointer;
+  color: var(--white-1);
+  font-size: 15px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: var(--blue-1);
+}
+
+.visible {
+  visibility: visible;
+}
+
+.advice {
+  color: var(--white-1);
+  margin-top: 50px;
+}

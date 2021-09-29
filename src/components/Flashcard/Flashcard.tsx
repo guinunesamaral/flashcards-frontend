@@ -1,50 +1,63 @@
 import React, { useState } from "react";
-import { useGlobalContext } from "../../context/context";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@material-ui/core";
+import { useDispatch } from "react-redux";
 import "./Flashcard.css";
 
-function Flashcard({
-  id,
-  front,
-  back,
-}: {
-  id: string;
-  front: string;
-  back: string;
-}) {
-  const { removeFlashcard } = useGlobalContext();
-  const [side, setSide] = useState("front");
+const Flashcard = React.memo(
+  ({ id, front, back }: { id: string; front: string; back: string }) => {
+    const dispatch = useDispatch();
+    const [side, setSide] = useState("front");
 
-  const remove = () => {
-    removeFlashcard(id);
-  };
+    const remove = () => {
+      dispatch({ type: "", payload: id });
+    };
 
-  const flip = () => {
-    if (side === "front") setSide("back");
-    else setSide("front");
-  };
+    const flip = () => {
+      if (side === "front") setSide("back");
+      else setSide("front");
+    };
 
-  return (
-    <div className="flashcard">
-      {side === "front" ? (
-        <>
-          <div className="front">
-            <p className="frontText" onClick={flip}>
+    return (
+      <Card variant="outlined" className="card" onClick={flip}>
+        <CardContent className="cardContent">
+          {side === "front" ? (
+            <Typography
+              variant="body1"
+              color="primary"
+              className="frontTypography"
+            >
               {front}
-            </p>
-          </div>
-          <div className="toolBar">
-            <button className="removeFlashcardBtn" onClick={remove}></button>
-          </div>
-        </>
-      ) : (
-        <div className="back">
-          <p className="backText" onClick={flip}>
-            {back}
-          </p>
-        </div>
-      )}
-    </div>
-  );
-}
+            </Typography>
+          ) : (
+            <Typography
+              variant="body1"
+              color="secondary"
+              component="p"
+              className="backTypography"
+            >
+              {back}
+            </Typography>
+          )}
+        </CardContent>
+        <CardActions className="cardActions">
+          <Button
+            variant="contained"
+            color="secondary"
+            className="btn"
+            onClick={remove}
+          >
+            Remove
+          </Button>
+        </CardActions>
+      </Card>
+    );
+  }
+);
 
 export default Flashcard;
